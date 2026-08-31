@@ -2,27 +2,26 @@
 
 #nullable disable
 
-namespace API.Data.Migrations
+namespace API.Data.Migrations;
+
+/// <inheritdoc />
+public partial class UserEntityUpdated2 : Migration
 {
     /// <inheritdoc />
-    public partial class UserEntityUpdated2 : Migration
+    protected override void Up(MigrationBuilder migrationBuilder)
     {
-        /// <inheritdoc />
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.RenameColumn(
-                name: "PasswordHard",
-                table: "Users",
-                newName: "PasswordHash");
-        }
+        migrationBuilder.RenameColumn(
+            name: "PasswordHard",
+            table: "Users",
+            newName: "PasswordHash");
+    }
 
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.RenameColumn(
-                name: "PasswordHash",
-                table: "Users",
-                newName: "PasswordHard");
-        }
+    /// <inheritdoc />
+    protected override void Down(MigrationBuilder migrationBuilder)
+    {
+        migrationBuilder.RenameColumn(
+            name: "PasswordHash",
+            table: "Users",
+            newName: "PasswordHard");
     }
 }
