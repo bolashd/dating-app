@@ -10,6 +10,7 @@ import { ControlValueAccessor, FormControl, NgControl, ReactiveFormsModule } fro
 export class TextInput implements ControlValueAccessor {
   label = input<string>('');
   type = input<string>('text');
+  maxDate = input<string>('');
 
   constructor(@Self() public ngControl: NgControl) { // @Self() is a dependency injector modifier, only consider this instance
     this.ngControl.valueAccessor = this;
