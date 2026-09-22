@@ -14,7 +14,7 @@
       }
     </div>
     @if (paginatedResult.items; as members) {
-      <div class="grid grid-cols-5 gap-6">
+      <div class="grid grid-cols-5 gap-6 mt-3">
         @for (member of members; track member.id) {
           <app-member-card [member]="member" />
         }
