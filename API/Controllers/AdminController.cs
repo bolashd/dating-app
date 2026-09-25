@@ -2,6 +2,7 @@ using API.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
@@ -12,7 +13,7 @@ public class AdminController(UserManager<AppUser> userManager) : BaseApiControll
     [HttpGet("users-with-roles")]
     public async Task<ActionResult> GetUsersWithRoles()
     {
-        var users = await userManager.Users.ToListAsync();
+        var users = await userManager.Users.OrderBy(x => x.Email).ToListAsync();
         var userList = new List<object>();
 
         foreach (var user in users)
